@@ -126,4 +126,22 @@ class LinkedList {
 
 }
 
+// instantiating a linked list
+const linkedList = new LinkedList();
+
+linkedList.addFirst(30);
+linkedList.addFirst(20);
+linkedList.addFirst(10);
+
+linkedList.addLast(40);
+
+linkedList.insertAt(50, 3);
+linkedList.insertAt(70, 0);
+
+console.log(linkedList.deleteFirst());
+
+console.log("Index: ", linkedList.indexOf(30));
+console.log("Contains: ", linkedList.contains(30));
+
+linkedList.printListData();
 
