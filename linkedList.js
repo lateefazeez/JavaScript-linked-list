@@ -72,6 +72,48 @@ class LinkedList {
     this.size++;
   }
 
+  indexOf(value) {
+    // start traversing from the head untill the value is reached
+    let index = 0;
+    let currentNode = this.head;
+
+    // check that traversal is not at tghe last element
+    while (currentNode !== null) {
+      // if the value is found
+      if (currentNode.value === value) return index;
+      // else move to the next on the list
+      currentNode = currentNode.next;
+      index++;
+    }
+    // if not found, return!
+    return -1;
+
+  }
+
+  contains(value) {
+    return this.indexOf(value) !== -1;
+  }
+
+  deleteFirst() {
+    // return if the linked list is empty
+    if (linkedList.size === 0) return;
+
+    // if the list contains a single item
+    if (this.head.next === null) {
+      this.head = null;
+      return;
+    }
+    // else if there are more than one item in the list, we would first store a reference for the second node
+    let firstNode = this.head;
+    let secondNode = firstNode.next;
+
+    // We can then remove the link between node 1 and node 2
+    firstNode.next = null;
+
+    // now make the second node to become the head
+    this.head = secondNode;
+
+  }
 
   printListData() {
     let currentNode = this.head;
@@ -84,17 +126,4 @@ class LinkedList {
 
 }
 
-// instantiating a linked list
-const linkedList = new LinkedList();
-
-linkedList.addFirst(30);
-linkedList.addFirst(20);
-linkedList.addFirst(10);
-
-linkedList.addLast(40);
-
-linkedList.insertAt(50, 3);
-linkedList.insertAt(70, 0);
-
-linkedList.printListData();
 
